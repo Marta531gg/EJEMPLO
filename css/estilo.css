@@ -1,0 +1,274 @@
+body {
+    font-family: Arial, sans-serif; 
+    background-color: #fac3d8 !important; 
+    margin: 0;
+    background-image: url(imagensuper.jpg);
+    display:flexbox;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+form {
+    background-color: #d16363;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin-right: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+    
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+    
+    button:hover {
+        background-color: #45a049;
+    }
+
+    .imagenes-container {
+        margin-left: 10px;
+    }
+
+    .imagenes-container imagensuper {
+        width: 500px; 
+        height: 500px
+        border-radius: 8px;
+    }
+    
+
+
+
+body 
+{font-family: sans-serif;
+    padding: 90px 20px 0;
+    }
+
+
+
+
+
+    .search input{
+        width: 300px; ;
+        padding: 10px;
+    }
+
+
+
+header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #9e63ec;
+    padding: 20px;
+}
+
+
+/*HEADER SUPERIOR*/
+
+.header__superior{
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+/*BARRA MENU*/
+
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.container__menu{
+    width: 100%;
+    height: 70px;
+    background: #ce8f8f;
+    padding: 0px 20px;
+}
+
+
+.Menu{
+    max-width: 1200px;
+    margin: auto;
+    height: 100%;
+}
+
+.nav{
+    height: 100%;
+}
+
+nav > ul{
+    height: 100%;
+    display: flex;  
+
+}
+
+nav ul li{
+    height: 100%;
+    list-style: none;
+    position: relative;
+}
+
+nav > ul > li > a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 14px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: all 300 ease;
+}
+
+nav > ul > li > a:hover{
+    transform: scale(1.1);
+    background: #9ec6e0;
+    box-shadow: 0px 0px 10px opx rgba(0,0,0,5);
+}
+
+
+/*SUBMENU*/
+
+nav ul li ul{
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 90px;
+    left: -5px;
+    padding: 14px 0px;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 0px 0px 10px 0px rgba (0,0,0,0,5);
+    z-index: 10;
+    transition: all 300ms ease;
+    }
+
+
+    nav ul li:hover ul{
+        visibility: visible;
+        opacity: 1;
+        top: 70px;
+    }
+
+    nav ul li ul::before{
+        content: ¨¨;
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 12px solid white; 
+        position: absolute;
+        top: -12px;
+        left: 20px;
+    }
+
+    nav ul li ul li a{
+        display: block;
+        color: rgb(86, 44, 235);
+        padding: 7px;
+        padding-left: 14px;
+        margin-top: 10px;
+        font-size: 14px;
+        text-transform: uppercase;
+        transition: all 300ms ease;
+    }
+
+    nav ul li ul li a:hover{
+    background: #0074c7;
+    color: #fff;
+    transform: scale(1,1);
+    padding-left: 30px;
+    font-size: 14px;
+    box-shadow: 0px 0px 10px 0px rgba (0,0,0,0,5);  
+    }
+
+
+/*ARTICULO*/
+
+    main{
+        background: #f0f0f0;
+        padding: 40px 20px;
+        margin: 20px;
+    }
+
+    article{
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 40px;
+        background: #fff;
+    }
+
+    article p{
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+
+
+
+    h3{
+        font-family: Calibri; 
+        font-size: 15pt;         
+        font-style: normal; 
+        font-weight: bold; 
+        color:rgb(17, 17, 17);
+        text-align: center; 
+        text-decoration: underline
+      }
+      
+      table{
+        font-family: Calibri; 
+        color:rgb(218, 75, 75); 
+        font-size: 10pt; 
+        font-style: normal;
+        font-weight: bold;
+        text-align:; 
+        background-color: rgba(247, 245, 135, 0.856); 
+        border-width: medium;
+        border: 2px solid navry;
+      }
+      table.inner{
+        border: 0px
+      }
+
+
+/* formulario departamentos*/
+.form_reg{
+    font-size: 18px;
+    padding:;
+    margin: 20px;
+    
+}
