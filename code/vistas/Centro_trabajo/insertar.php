@@ -16,7 +16,7 @@ if (!isset($_SESSION['id_usuario'])) {
 
 
 // Fetch products from the database
-$sqlProducts = "SELECT cod_ctra, nom_ctra FROM centro_trabajo";
+$sqlProducts = "SELECT cod_emp, nom_emp FROM empleados";
 $resultProducts = $conn->query($sqlProducts);
 
 $products = [];
@@ -129,21 +129,14 @@ if ($resultProducts->num_rows > 0) {
                 <label for="ingreso">asignacion permiso</label>
                 <input type="number" id="asig_perm" name="asig_perm" maxlength="100" placeholder="Asignacion permiso" required>
             </div>
-            <div class="form-group">
-                <label for="salida">supervision general</label>
-                <input type="text" id="super_gen" name="super_gen" maxlength="100" placeholder="Supervicion general" required>
-            </div>
             
-            <div class="form-group">
-                <label for="salida">supervision codigo empleado</label>
-                <input type="text" id="cod_emp" name="cod_emp" maxlength="100" placeholder="codigo empleado" required>
-            </div>
+            
             
 
                 <select class="form-control" id="cod_pro" name="cod_pro" required>
-                    <option value="">Selecciona un Producto</option>
+                    <option value="">Selecciona un supervisor</option>
                     <?php foreach ($products as $product): ?>
-                        <option value="<?php echo $product['cod_ctra']; ?>"><?php echo $centro_trabajo['nom_ctra']; ?></option>
+                        <option value="<?php echo $product['cod_emp']; ?>"><?php echo $product['nom_emp']; ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -152,6 +145,7 @@ if ($resultProducts->num_rows > 0) {
             </div>
         </form>
     </div>
+    <button><a href="http://localhost/proyecto/principal.php">Inicio</a> </button>
 </body>
 
 </html>

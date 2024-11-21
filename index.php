@@ -93,13 +93,13 @@ header("Location: index.php");
     
 
     <div class="logo-container">
-          <img src="imagenes/imagensuper.jpg" width="1000"  alt="un señor en el supermercado" class="img-fluid">
+          <img src="imagenes/imagenproyecto.jpg" width="1000"  alt="imagen de una seccion del minimercado" class="img-fluid">
     </div>
          
 
                 
                 <form method="POST" class="form-color" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                    <center><h1> MERCAPLAZA</h1></center>
+                    <center><h1> EL PREFERIDO</h1></center>
                     <div class="mb-3">
                         <label for="usuario" class="form-label">Usuario:</label>
                         <input type="text" id="usuario" name="usuario" class="form-control" required>

@@ -13,7 +13,7 @@ if (!isset($_SESSION['id_usuario'])) {
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "supermercadomercaplaza";
+$dbname = "preferido";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -25,8 +25,8 @@ if ($conn->connect_error) {
 // Establecer juego de caracteres UTF-8
 $conn->set_charset('utf8');
 
-// Consulta utilizando MySQLi
-$consulta = "SELECT * FROM departamento ORDER BY  cod_dpto";
+// Consulta para obtener departamentos
+$consulta = "SELECT * FROM departamento ORDER BY cod_dpto";
 $resultado = $conn->query($consulta);
 
 // Comprobación de errores en la ejecución de la consulta
@@ -69,59 +69,54 @@ if (!$resultado) {
 
 <body>
 
-<!--boton donde sale formulario insertar-->
+<div class="container mt-4">
+    <button name="botonc" type="button" onclick="document.location='insertar.php'" class="btn btn-primary mb-3">
+        Ingresar departamento
+    </button>
 
-    <div class="container mt-4">
-        <button name="botonc" type="button" onclick="document.location='insertar.php?da=2'" class="btn btn-primary mb-3">
-            Ingresar departamento
-        </button>
-        
-    
-
-        <table class="table table-bordered">
-            <thead>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Departamento</th>
+                <th>Nombre departamento</th>
+                <th>Asignación labor</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php while ($departamento = $resultado->fetch_assoc()) { ?>
                 <tr>
-                     <th>Departamento</th>
-                    <th>Nombre departamento</th>
-                    <th>asignacion labor</th>
-                   <th>Acciones</th>
+                    <td><?php echo htmlspecialchars($departamento['cod_dpto']); ?></td>
+                    <td><?php echo htmlspecialchars($departamento['nom_dpto']); ?></td>
+                    <td><?php echo htmlspecialchars($departamento['asig_labor']); ?></td>
+                    <td>
+                        <a href="edit.php?da=3&lla=<?php echo htmlspecialchars($departamento['cod_dpto']); ?>" class="btn btn-custom-green btn-editar">
+                            <i class="fas fa-edit icon"></i> Editar
+                        </a>
+                        <a href="#" class="btn btn-danger btn-borrar" onclick="pregunta(<?php echo htmlspecialchars($departamento['cod_dpto']); ?>)">
+                            <i class="fas fa-trash-alt icon"></i> Borrar
+                        </a>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                <?php while ($departamento = $resultado->fetch_assoc()) { ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($departamento['cod_dpto']); ?></td>
-                        <td><?php echo htmlspecialchars($departamento['nom_dpto']); ?></td>
-                        <td><?php echo htmlspecialchars($departamento['asig_labor']); ?></td>
-                      
-                        
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
 
-                        <td>
-                            <a href="edit.php?da=3&lla=<?php echo htmlspecialchars($departamento['cod_dpto']); ?>" class="btn btn-custom-green btn-editar">
-                                <i class="fas fa-edit icon"></i> Editar
-                            </a>
-                            <a href="#" class="btn btn-danger btn-borrar" onclick="pregunta(<?php echo htmlspecialchars($departamento['cod_dpto']); ?>)">
-                                <i class="fas fa-trash-alt icon"></i> Borrar
-                            </a>
-                        </td>
-                    </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-    </div>
+<button><a href="http://localhost/proyecto/principal.php">Inicio</a></button>
 
-    <script>
-    function pregunta(id) {
-        if (confirm('¿Está seguro de borrar el dato del departamento?')) {
-            document.location = "borrar.php?da=4&lla=" + id;
-        }
+<script>
+function pregunta(id) {
+    if (confirm('¿Está seguro de borrar el dato del departamento?')) {
+        document.location = "delete.php?da=4&lla=" + id;
     }
-    </script>
+}
+</script>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

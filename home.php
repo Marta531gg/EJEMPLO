@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Inventarios - Supermercado Mercaplaza</title>
+    <title>Panel de Inventarios - Preferido</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome for icons (optional) -->
@@ -64,7 +64,7 @@
         <!-- Logo Section -->
         <div class="row">
             <div class="col-12 logo-container">
-                <img src="imagenes/logo mer.jpg" alt="Supermercado Mercaplaza">
+                <img src="imagenes/logo mer.jpg" alt="Preferido">
             </div>
         </div>
 
@@ -73,13 +73,13 @@
             <nav class="sidebar">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="code/vistas/departamentos/crear.php"><i class="fas fa-cube"></i> Departamentos</a>
+                        <a class="nav-link" href="code/vistas/departamentos/crear.php"><i class="fas fa-cube"></i> Departamento</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="code/vistas/centro_trabajo/crear.php"><i class="fas fa-cube"></i> Centro de Trabajo</a>
+                        <a class="nav-link" href="code/vistas/centro_trabajo/crear.php"><i class="fas fa-cube"></i> Centro de </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="code/vistas/productos/crear.php"><i class="fas fa-cube"></i> Productos</a>
+                        <a class="nav-link" href="code/vistas/productos/crear.php"><i class="fas fa-cube"></i> Producto</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="code/vistas/proveedores/crear.php"><i class="fas fa-truck"></i> Proveedores</a>
@@ -88,7 +88,7 @@
                         <a class="nav-link" href="./empleados.html"><i class="fas fa-users"></i> Empleados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./pro_ordencompra.html"><i class="fas fa-shopping-cart"></i> Producto Orden Compra</a>
+                        <a class="nav-link" href="code/vistas/proveedores/producto_ordencompra.php"><i class="fas fa-shopping-cart"></i> Producto Orden Compra</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./orden_compra.html"><i class="fas fa-file-alt"></i> Orden de Compra</a>

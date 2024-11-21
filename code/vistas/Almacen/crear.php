@@ -13,7 +13,7 @@ if (!isset($_SESSION['id_usuario'])) {
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "supermercadomercaplaza";
+$dbname = "preferido";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -114,7 +114,7 @@ if (!$resultado) {
             </tbody>
         </table>
     </div>
-
+    <button><a href="http://localhost/proyecto/principal.php">Inicio</a> </button>
     <script>
     function pregunta(id) {
         if (confirm('¿Está seguro de borrar el dato del almacén?')) {

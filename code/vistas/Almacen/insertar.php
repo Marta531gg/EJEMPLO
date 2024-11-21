@@ -147,6 +147,7 @@ if ($resultProducts->num_rows > 0) {
             </div>
         </form>
     </div>
+    <button><a href="http://localhost/proyecto/principal.php">Inicio</a> </button>
 </body>
 
 </html>

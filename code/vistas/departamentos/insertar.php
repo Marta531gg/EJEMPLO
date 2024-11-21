@@ -10,7 +10,7 @@ if (isset($_POST['boton'])) {
     // Capturar los datos enviados
     $nom_dpto = $_POST['nom_dpto'];
     $asig_labor = $_POST['asig_labor'];
-   // $cod_ctra = $_POST['co_ctra'];
+    $cod_ctra = 2;
 
 
         
@@ -21,12 +21,12 @@ if (isset($_POST['boton'])) {
             $ins = new Sentencia($insertar, $conn, 'departamento');
             $ins->insertarbdo();
 
-            if (mysqli_query($conn, $insertar)) {
+           // if (mysqli_query($conn, $insertar)) {
                 header("Location: crear.php?da=2");
                 exit();
-            } else {
-                echo "Error al insertar el departamento: " . mysqli_error($conn);
-            }
+           // } else {
+             //   echo "Error al insertar el departamento: " . mysqli_error($conn);
+            //}
     
             mysqli_close($conn);
         }
@@ -127,7 +127,7 @@ if (isset($_POST['boton'])) {
         </form>
     </div>
     
-    
+    <button><a href="http://localhost/proyecto/principal.php">Inicio</a> </button>
     
 </body>
 

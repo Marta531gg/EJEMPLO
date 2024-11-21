@@ -13,7 +13,7 @@ if (!isset($_SESSION['id_usuario'])) {
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "supermercadomercaplaza";
+$dbname = "preferido";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -26,7 +26,7 @@ if ($conn->connect_error) {
 $conn->set_charset('utf8');
 
 // Consulta utilizando MySQLi
-$consulta = "SELECT * FROM centro_trabajo ORDER BY id_centro_trabajo";
+$consulta = "SELECT * FROM centro_trabajo ORDER BY cod_ctra";
 $resultado = $conn->query($consulta);
 
 // Comprobación de errores en la ejecución de la consulta
@@ -69,64 +69,60 @@ if (!$resultado) {
 
 <body>
 
-<!--boton donde sale formulario insertar-->
+<div class="container mt-4">
+    <button name="botonc" type="button" onclick="document.location='insertar.php?da=2'" class="btn btn-primary mb-3">
+        Ingresar centro_trabajo
+    </button>
 
-    <div class="container mt-4">
-        <button name="botonc" type="button" onclick="document.location='insertar.php?da=2'" class="btn btn-primary mb-3">
-            Ingresar centro_trabajo
-        </button>
-        
-    
-
-        <table class="table table-bordered">
-            <thead>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Centro trabajo</th>
+                <th>Nombre centro trabajo</th>
+                <th>Gestión usuario</th>
+                <th>Asignación permiso</th>
+                <th>Supervisión general</th>
+                <th>Código empleado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php while ($centro_trabajo = $resultado->fetch_assoc()) { ?>
                 <tr>
-                     <th>Centro trabajo</th>
-                    <th>Nombre centro trabajo</th>
-                    <th>gestion usuario</th>
-                    <th>asignacion permiso</th>
-                    <th>supervision general</th>
-                    <th>Codigo empleado</th>
-                    <th>Acciones</th>
+                    <td><?php echo htmlspecialchars($centro_trabajo['cod_ctra']); ?></td>
+                    <td><?php echo htmlspecialchars($centro_trabajo['nom_ctra']); ?></td>
+                    <td><?php echo htmlspecialchars($centro_trabajo['gest_usuario']); ?></td>
+                    <td><?php echo htmlspecialchars($centro_trabajo['asig_perm']); ?></td>
+                    <td><?php echo htmlspecialchars($centro_trabajo['super_gen']); ?></td>
+                    <td><?php echo htmlspecialchars($centro_trabajo['cod_emp']); ?></td>
+                    <td>
+                        <a href="editar.php?da=3&lla=<?php echo htmlspecialchars($centro_trabajo['cod_ctra']); ?>" class="btn btn-custom-green btn-editar">
+                            <i class="fas fa-edit icon"></i> Editar
+                        </a>
+                        <a href="#" class="btn btn-danger btn-borrar" onclick="pregunta(<?php echo htmlspecialchars($centro_trabajo['cod_ctra']); ?>)">
+                            <i class="fas fa-trash-alt icon"></i> Borrar
+                        </a>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                <?php while ($centro_trabajo = $resultado->fetch_assoc()) { ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($centro_trabajo['id_centro_trabajo']); ?></td>
-                        <td><?php echo htmlspecialchars($centro_trabajo['nom_ctra']); ?></td>
-                        <td><?php echo htmlspecialchars($centro_trabajo['gest_usuario']); ?></td>
-                        <td><?php echo htmlspecialchars($centro_trabajo['asig_perm']); ?></td>
-                        <td><?php echo htmlspecialchars($centro_trabajo['super_gen']); ?></td>
-                        <td><?php echo htmlspecialchars($cod_emp['cod_emp']); ?></td>
-                        
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
 
-                        <td>
-                            <a href="edit.php?da=3&lla=<?php echo htmlspecialchars($almacen['id_centro_trabajo']); ?>" class="btn btn-custom-green btn-editar">
-                                <i class="fas fa-edit icon"></i> Editar
-                            </a>
-                            <a href="#" class="btn btn-danger btn-borrar" onclick="pregunta(<?php echo htmlspecialchars($centro_trabajo['id_centro_trabajo']); ?>)">
-                                <i class="fas fa-trash-alt icon"></i> Borrar
-                            </a>
-                        </td>
-                    </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-    </div>
+<button><a href="http://localhost/proyecto/principal.php">Inicio</a></button>
 
-    <script>
-    function pregunta(id) {
-        if (confirm('¿Está seguro de borrar el dato del centro_trabajo?')) {
-            document.location = "borrar.php?da=4&lla=" + id;
-        }
+<script>
+function pregunta(id) {
+    if (confirm('¿Está seguro de borrar el dato del centro_trabajo?')) {
+        document.location = "borrar.php?da=4&lla=" + id;
     }
-    </script>
+}
+</script>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
